@@ -1,0 +1,9 @@
+<label>Найти \ Добавить интерес</label>
+<input type="text" name="interes">
+<button>Ok</button>
+
+<div class="cloud-interests">
+    <div *ngFor="let interes of interests$ | async"
+    [routerLink]="['/interests', interes.id ]">{{ interes.title }}</div>
+  </div>
+
