@@ -3,7 +3,6 @@ import { Observable } from 'rxjs/Observable';
 
 import { of } from 'rxjs/observable/of';
 
-
 export class Interes {
   id: number;
   title: string;
@@ -17,5 +16,11 @@ export class ApiService {
 
   getInterests(): Observable<Interes[]> {
     return of(INTERESTS);
+  }
+
+  addInterest(item: Interes) {
+    if (!INTERESTS.find(a => a.title === item.title)) {
+      INTERESTS.push(item);
+    }
   }
 }

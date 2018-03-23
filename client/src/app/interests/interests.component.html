@@ -1,7 +1,7 @@
 <div>
   <label>Найти \ Добавить интерес</label>
-  <input type="text" name="interes">
-  <button>Ok</button>
+  <input type="text" name="interes" #title>
+  <button (click)="add(title.value)">Ok</button>
 </div>
 
 <div class="cloud-interests">
