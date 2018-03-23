@@ -24,7 +24,4 @@ export class InterestsComponent implements OnInit {
     }
   }
 
-  delete(){
-    // zzz 
-  }
 }
