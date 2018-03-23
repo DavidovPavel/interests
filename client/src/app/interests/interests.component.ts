@@ -23,4 +23,8 @@ export class InterestsComponent implements OnInit {
       this.title.nativeElement.value = '';
     }
   }
+
+  delete(){
+    // zzz 
+  }
 }
