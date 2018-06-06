@@ -13,6 +13,8 @@ import { ApiService } from './api.service';
 import { registerLocaleData } from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
 
+import { TagCloudModule } from 'angular-tag-cloud-module';
+
 registerLocaleData(localeRu, 'ru');
 
 const routes: Routes = [
@@ -24,7 +26,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [AppComponent, NotFoundComponent, InterestsComponent, InteresComponent],
-  imports: [BrowserModule, RouterModule.forRoot(routes)],
+  imports: [BrowserModule, TagCloudModule, RouterModule.forRoot(routes)],
   exports: [RouterModule],
   providers: [ApiService, { provide: LOCALE_ID, useValue: 'ru' }],
   bootstrap: [AppComponent],

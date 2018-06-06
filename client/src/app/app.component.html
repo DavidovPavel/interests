@@ -10,6 +10,17 @@
 
 <main>
 
+    <div>
+        <angular-tag-cloud
+        [zoomOnHover]="zoomOnHoverOptions"
+          [data]="data"
+          [width]="options.width"
+          [height]="options.height"
+          [overflow]="options.overflow"
+          (clicked)="logClicked($event)">
+        </angular-tag-cloud>
+      </div>
+
   <router-outlet></router-outlet>
 
 </main>
