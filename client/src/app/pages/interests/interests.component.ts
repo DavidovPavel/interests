@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { Interes, ApiService } from '../api.service';
+import { Observable } from 'rxjs';
+import { Interes, ApiService } from '../../core/api.service';
 
 @Component({
   selector: 'app-interests',
