@@ -4,16 +4,16 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { registerLocaleData } from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
-
-import { RouterModule, Routes } from '@angular/router';
+import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 
+import { AngularFireModule } from 'angularfire2';
+import { RouterModule } from '@angular/router';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
-import { AngularFireModule } from 'angularfire2';
-import { environment } from '../environments/environment';
 import { PagesModule } from './pages/pages.module';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 registerLocaleData(localeRu, 'ru');
 
@@ -22,13 +22,14 @@ registerLocaleData(localeRu, 'ru');
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     BrowserAnimationsModule,
     CoreModule,
     PagesModule,
     SharedModule,
     RouterModule.forRoot([]),
   ],
-  exports: [RouterModule],
+  exports: [RouterModule, AngularFireModule, AngularFireAuthModule],
   providers: [{ provide: LOCALE_ID, useValue: 'ru' }],
   bootstrap: [AppComponent],
 })
