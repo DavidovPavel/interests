@@ -7,9 +7,10 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { InterestsComponent } from './interests/interests.component';
 import { InteresComponent } from './interests/interes/interes.component';
+import { AddComponent } from './add.component';
 
 @NgModule({
   imports: [CommonModule, PagesRouterModule, TagCloudModule],
-  declarations: [HomeComponent, NotFoundComponent, InterestsComponent, InteresComponent],
+  declarations: [HomeComponent, NotFoundComponent, InterestsComponent, InteresComponent, AddComponent],
 })
 export class PagesModule {}

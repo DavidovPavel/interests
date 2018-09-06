@@ -1,19 +1,23 @@
 <mat-toolbar>
-  <!-- <span>Интересы</span>
-  <span>|</span>
-  <span>Желаемое</span>
-  <span>|</span>
-  <span>Действительное</span>
-  <span>|</span>
-  <span>Поделиться мыслями</span> -->
 
+  <span *ngIf="afAuth.user | async as user; else showLogin">
 
-  <div *ngIf="afAuth.user | async as user; else showLogin">
-    <h1>Hello {{ user.displayName }}!</h1>
-    <button (click)="logout()">Logout</button>
-  </div>
+    <button mat-button (click)="expanded=!expanded">Добавить интерес</button>
+
+    <span>Привет {{ user.displayName }}!</span>
+    <button mat-icon-button (click)="logout()" matTooltip="Выход">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </span>
   <ng-template #showLogin>
-    <p>Please login.</p>
     <button (click)="login()">Login with Google</button>
   </ng-template>
 </mat-toolbar>
+
+<mat-expansion-panel [expanded]="expanded">
+  <mat-form-field>
+    <input matInput placeholder="Добавить интерес" [formControl]="add">
+  </mat-form-field>
+  <button mat-icon-button (click)="expanded=false"><mat-icon>close</mat-icon></button>
+  <button mat-icon-button (click)="_add()"><mat-icon>done</mat-icon></button>
+</mat-expansion-panel>
