@@ -9,36 +9,24 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
-import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { InterestsComponent } from './pages/interests/interests.component';
-import { InteresComponent } from './pages/interests/interes/interes.component';
-
-import { TagCloudModule } from 'angular-tag-cloud-module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
-
+import { PagesModule } from './pages/pages.module';
 
 registerLocaleData(localeRu, 'ru');
 
-const routes: Routes = [
-  { path: '', redirectTo: '/interests', pathMatch: 'full' },
-  { path: 'interests', component: InterestsComponent },
-  { path: 'interests/:id', component: InteresComponent },
-  { path: '**', component: NotFoundComponent },
-];
-
 @NgModule({
-  declarations: [AppComponent, NotFoundComponent, InterestsComponent, InteresComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     BrowserAnimationsModule,
     CoreModule,
+    PagesModule,
     SharedModule,
-    TagCloudModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot([]),
   ],
   exports: [RouterModule],
   providers: [{ provide: LOCALE_ID, useValue: 'ru' }],
