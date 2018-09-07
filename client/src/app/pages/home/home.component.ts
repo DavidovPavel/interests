@@ -27,9 +27,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   constructor(private as: AngularFirestore, private router: Router) {
     this.interests$ = this.as
-      .collection<CloudData>('interests')
-      .valueChanges()
-      .pipe(map(actions => actions.filter((a: Interes) => a.access === 'public')));
+      .collection<CloudData>('interests', ref => ref.where('access', '==', 'public'))
+      .valueChanges();
   }
 
   ngOnInit() {}
