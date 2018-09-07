@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CloudOptions, CloudData, ZoomOnHoverOptions } from 'angular-tag-cloud-module';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { Interes } from '@app/core/types';
+import { Interest } from '@app/core/types';
 import { Router } from '@angular/router';
 
 @Component({
@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {}
 
-  logClicked(clicked: Interes) {
+  logClicked(clicked: Interest) {
     this.router.navigate(['interest', clicked.id]);
   }
 }

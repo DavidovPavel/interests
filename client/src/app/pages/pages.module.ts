@@ -5,11 +5,10 @@ import { TagCloudModule } from 'angular-tag-cloud-module';
 import { PagesRouterModule } from './router.module';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { InterestsComponent } from './interests/interests.component';
-import { InteresComponent } from './interests/interes/interes.component';
+import { InterestComponent } from './interest/interest.component';
 
 @NgModule({
   imports: [CommonModule, PagesRouterModule, TagCloudModule],
-  declarations: [HomeComponent, NotFoundComponent, InterestsComponent, InteresComponent],
+  declarations: [HomeComponent, NotFoundComponent, InterestComponent],
 })
 export class PagesModule {}

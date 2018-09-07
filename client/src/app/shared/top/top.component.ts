@@ -6,8 +6,7 @@ import 'firebase/auth';
 import { FormControl, Validators } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { Interes } from '@app/core/types';
-
+import { Interest } from '@app/core/types';
 
 @Component({
   selector: 'app-top',
@@ -33,7 +32,7 @@ export class TopComponent implements OnInit {
       const cdate = new Date();
 
       this.store
-        .collection<Interes>('interests')
+        .collection<Interest>('interests')
         .add({ id, text, user_uid, cdate, weight: 0, access: 'protected' })
         .then(() => {
           this.add.reset();

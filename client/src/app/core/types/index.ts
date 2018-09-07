@@ -1,4 +1,4 @@
-export interface Interes {
+export interface Interest {
   id: string;
   cdate: Date;
   text: string;

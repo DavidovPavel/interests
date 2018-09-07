@@ -1,15 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { InterestsComponent } from './interests/interests.component';
-import { InteresComponent } from './interests/interes/interes.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { InterestComponent } from './interest/interest.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'interest', component: InterestsComponent },
-  { path: 'interest/:id', component: InteresComponent },
+  { path: 'interest/:id', component: InterestComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
