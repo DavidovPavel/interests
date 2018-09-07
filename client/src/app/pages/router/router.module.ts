@@ -4,13 +4,12 @@ import { HomeComponent } from '../home/home.component';
 import { InterestsComponent } from '../interests/interests.component';
 import { InteresComponent } from '../interests/interes/interes.component';
 import { NotFoundComponent } from '../not-found/not-found.component';
-import { AddComponent } from '../add.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'interes', component: InterestsComponent },
-  { path: 'interes/:id', component: InteresComponent },
+  { path: 'interest', component: InterestsComponent },
+  { path: 'interest/:id', component: InteresComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

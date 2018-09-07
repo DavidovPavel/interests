@@ -37,7 +37,7 @@ export class TopComponent implements OnInit {
         .add({ id, text, user_uid, cdate, weight: 0, access: 'protected' })
         .then(() => {
           this.add.reset();
-          this.router.navigate(['interes', id]);
+          this.router.navigate(['interest', id]);
         });
     }
   }
