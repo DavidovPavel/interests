@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
+
 import { FormControl, Validators } from '@angular/forms';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
+import { Interes } from '@app/core/types';
+
 
 @Component({
   selector: 'app-top',
@@ -12,7 +17,7 @@ import { FormControl, Validators } from '@angular/forms';
 export class TopComponent implements OnInit {
   expanded = false;
 
-  constructor(public afAuth: AngularFireAuth) {}
+  constructor(public afAuth: AngularFireAuth, private store: AngularFirestore, private router: Router) {}
 
   add = new FormControl('', Validators.required);
 
@@ -20,7 +25,20 @@ export class TopComponent implements OnInit {
 
   _add() {
     if (this.add.valid) {
-      
+      this.expanded = false;
+
+      const id = this.store.createId();
+      const text = this.add.value;
+      const user_uid = this.afAuth.auth.currentUser.uid;
+      const cdate = new Date();
+
+      this.store
+        .collection<Interes>('interests')
+        .add({ id, text, user_uid, cdate, weight: 0, access: 'protected' })
+        .then(() => {
+          this.add.reset();
+          this.router.navigate(['interes', id]);
+        });
     }
   }
 

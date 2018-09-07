@@ -16,7 +16,7 @@
 
 <mat-expansion-panel [expanded]="expanded">
   <mat-form-field>
-    <input matInput placeholder="Добавить интерес" [formControl]="add">
+    <input matInput placeholder="Добавить интерес" [formControl]="add" (keyup.enter)="_add()" />
   </mat-form-field>
   <button mat-icon-button (click)="expanded=false"><mat-icon>close</mat-icon></button>
   <button mat-icon-button (click)="_add()"><mat-icon>done</mat-icon></button>

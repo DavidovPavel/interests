@@ -9,8 +9,8 @@ import { AddComponent } from '../add.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'interests', component: InterestsComponent },
-  { path: 'interests/:id', component: InteresComponent },
+  { path: 'interes', component: InterestsComponent },
+  { path: 'interes/:id', component: InteresComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

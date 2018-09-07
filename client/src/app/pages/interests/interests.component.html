@@ -1,11 +1,3 @@
-<div>
-  <label>Найти \ Добавить интерес</label>
-  <input type="text" name="interes" #title>
-  <button (click)="add(title.value)">Ok</button>
-</div>
 
-<div class="cloud-interests">
-  <div *ngFor="let interes of interests$ | async" [routerLink]="['/interests', interes.id ]">{{ interes.title }}</div>
-</div>
 
 <div></div>
