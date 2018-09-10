@@ -8,6 +8,8 @@ import {
   MatExpansionModule,
   MatInputModule,
   MatFormFieldModule,
+  MatTableModule,
+  MatDialogModule,
 } from '@angular/material';
 @NgModule({
   imports: [
@@ -18,6 +20,8 @@ import {
     MatExpansionModule,
     MatInputModule,
     MatFormFieldModule,
+    MatTableModule,
+    MatDialogModule
   ],
   exports: [
     MatToolbarModule,
@@ -27,6 +31,8 @@ import {
     MatExpansionModule,
     MatInputModule,
     MatFormFieldModule,
+    MatTableModule,
+    MatDialogModule
   ],
 })
 export class MaterialModule {}

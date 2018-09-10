@@ -1,10 +1,12 @@
 <mat-toolbar>
 
+  <button mat-icon-button routerLink="/home"><mat-icon>home</mat-icon></button>
+
   <span *ngIf="afAuth.user | async as user; else showLogin">
 
     <button mat-button (click)="expanded=!expanded">Добавить интерес</button>
 
-    <span>Привет {{ user.displayName }}!</span>
+    <span>Привет <a routerLink="/profile">{{ user.displayName }}</a>!</span>
     <button mat-icon-button (click)="logout()" matTooltip="Выход">
       <mat-icon>exit_to_app</mat-icon>
     </button>

@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from './material.module';
 import { TopComponent } from './top/top.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ContentDialogComponent } from './content-dialog/content-dialog.component';
 
 
 
@@ -14,7 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MaterialModule,
     ReactiveFormsModule
     ],
-  exports: [MaterialModule, ReactiveFormsModule, TopComponent],
-  declarations: [TopComponent]
+  exports: [MaterialModule, ReactiveFormsModule, TopComponent, ContentDialogComponent],
+  declarations: [TopComponent, ContentDialogComponent],
+  entryComponents: [ContentDialogComponent]
 })
 export class SharedModule { }

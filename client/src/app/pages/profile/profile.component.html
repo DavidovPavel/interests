@@ -1,0 +1,44 @@
+<mat-table #table [dataSource]="coll$ | async">
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="text">
+    <th mat-header-cell *matHeaderCellDef [style.width]="'50%'"> Наименование </th>
+    <td mat-cell *matCellDef="let element"> {{element.text}} 
+      <button [routerLink]="[ '/interest', element.id ]" mat-icon-button>
+        <mat-icon>input</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="access">
+    <th mat-header-cell *matHeaderCellDef> Доступ </th>
+    <td mat-cell *matCellDef="let element" [style.textAlign]="'center'">
+      <button mat-icon-button (click)="_access(element)">
+        <mat-icon color="primary">{{element.access === 'public'? 'visibility': 'visibility_off'}}</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="weight">
+    <th mat-header-cell *matHeaderCellDef> Вес </th>
+    <td mat-cell *matCellDef="let element" [style.textAlign]="'center'"> {{element.weight}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="cdate">
+    <th mat-header-cell *matHeaderCellDef> Создан </th>
+    <td mat-cell *matCellDef="let element"> {{ element.cdate.toDate() | date:'short' }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="controls">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button color="accent" (click)="_delete(element)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</mat-table>
