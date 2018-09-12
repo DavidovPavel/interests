@@ -34,7 +34,7 @@ export class TopComponent implements OnInit {
       this.store
         .collection<Interest>('interests')
         .doc<Interest>(id)
-        .set({ id, text, user_uid, cdate, weight: 0, access: 'protected' })
+        .set({ id, text, user_uid, cdate, weight: 1, access: 'protected' })
         .then(() => {
           this.add.reset();
           this.router.navigate(['interest', id]);

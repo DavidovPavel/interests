@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit {
 
   _changeWeight(e, el: Interest) {
     const value = e.target.value;
-    el.weight = value < 0 ? 0 : value > 10 ? 10 : value;
+    el.weight = value < 1 ? 1 : value > 10 ? 10 : value;
     e.target.value = el.weight;
     this.as.doc<Interest>(`interests/${el.id}`).set(el);
   }
