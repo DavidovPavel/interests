@@ -13,30 +13,24 @@ import { ContentDialogComponent } from '@app/shared/content-dialog/content-dialo
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-
   displayedColumns: string[] = ['text', 'weight', 'cdate', 'access', 'controls'];
   coll$: Observable<Interest[]>;
 
   constructor(private as: AngularFirestore, private auth: AngularFireAuth, public dialog: MatDialog) {}
 
   ngOnInit() {
-
     this.coll$ = this.auth.user.pipe(
       switchMap(user =>
-        this.as
-          .collection('interests', ref => ref.where('user_uid', '==', user.uid))
-          .snapshotChanges()
-          .pipe(
-            map(actions =>
-              actions.map(a => {
-                const data = a.payload.doc.data() as Interest;
-                const id = a.payload.doc.id;
-                return { id, ...data };
-              })
-            )
-          )
+        this.as.collection<Interest>('interests', ref => ref.where('user_uid', '==', user.uid)).valueChanges()
       )
     );
+  }
+
+  _changeWeight(e, el: Interest) {
+    const value = e.target.value;
+    el.weight = value < 0 ? 0 : value > 10 ? 10 : value;
+    e.target.value = el.weight;
+    this.as.doc<Interest>(`interests/${el.id}`).set(el);
   }
 
   _access(el: Interest) {

@@ -1,0 +1,17 @@
+section {
+  padding: 10px 20px;
+
+  h1 {
+    text-transform: uppercase;
+  }
+
+  .lenta {
+    &>div {
+      margin: 10px 0 20px;
+      background-color: rgb(245, 245, 245);
+      padding: 10px;
+      border: solid 1px #cccccc      
+    }
+    &>div>p { font-size: 1.2em;}
+  }
+}

@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Interest } from '@app/core/types';
 import { Router } from '@angular/router';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -27,7 +28,15 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(private as: AngularFirestore, private router: Router) {
     this.interests$ = this.as
       .collection<CloudData>('interests', ref => ref.where('access', '==', 'public'))
-      .valueChanges();
+      .valueChanges()
+      .pipe(
+        map(ws =>
+          ws.map(w => {
+            const color = this.getRandomColor();
+            return { color, ...w };
+          })
+        )
+      );
   }
 
   ngOnInit() {}
@@ -36,5 +45,14 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   logClicked(clicked: Interest) {
     this.router.navigate(['interest', clicked.id]);
+  }
+
+  getRandomColor(): string {
+    const letters = 'ABCDEF0123456789';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
   }
 }

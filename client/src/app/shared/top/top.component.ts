@@ -33,7 +33,7 @@ export class TopComponent implements OnInit {
 
       this.store
         .collection<Interest>('interests')
-        .doc(id)
+        .doc<Interest>(id)
         .set({ id, text, user_uid, cdate, weight: 0, access: 'protected' })
         .then(() => {
           this.add.reset();

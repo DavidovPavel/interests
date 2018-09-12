@@ -2,6 +2,7 @@
 
 <angular-tag-cloud 
   [zoomOnHover]="zoomOnHoverOptions" 
+  [strict]="true"
   [data]="(interests$ | async) || []" 
   [width]="options.width" 
   [height]="options.height"

@@ -1,7 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+@import "~materialize-css/sass/components/color-variables";
+@import "~materialize-css/sass/components/color-classes";
+@import "~materialize-css/sass/components/variables";
+@import "~materialize-css/sass/components/normalize";
+@import "~materialize-css/sass/components/grid";
+
 body {
   margin: 0;
   background-color: #fff;
+  font-family: 'Roboto';
+  font-weight: normal;
+  font-style: normal;
 }
+
+@import "assets/fonts/roboto.css";

@@ -1,3 +1,28 @@
-<p>
-  interest works!
-</p>
+<section *ngIf="item$ | async as item">
+  <h1>{{ item.text }}</h1>
+  <div class="row">
+    <div class="lenta col m6 l6">
+      <div *ngFor="let post of posts$ | async">
+        {{ post.cdate.toDate() | date:'short' }}
+        <p>{{ post.text }}</p>
+        <div *ngIf="post.file_url$ | async as url"><img style="max-width: 500px;" [src]="url" alt="" /></div>
+      </div>
+    </div>
+    <div class="col m6 l6">
+      <mat-form-field style="width: 400px;">
+        <textarea row="4" matInput placeholder="Ваше сообщение" [formControl]="post"></textarea>
+      </mat-form-field>
+      &nbsp;
+      <button mat-button (click)="_addFile()">
+        <mat-icon>attach_file</mat-icon> Добавить фото
+      </button>
+      <input type="file" #fileUploadInput value="upload_photo" style="display: none;" />
+
+      <mat-progress-bar *ngIf="uploadPercent | async as uploadValue" [value]="uploadValue"></mat-progress-bar>
+
+    <p>
+      <button mat-raised-button color="primary" (click)="_send()">Отправить</button>
+    </p>
+  </div>
+  </div>
+</section>
