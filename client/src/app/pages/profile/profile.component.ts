@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Interest } from '@app/core/types';
 import { Observable } from 'rxjs';
-import { switchMap, filter, map } from 'rxjs/operators';
+import { switchMap, filter } from 'rxjs/operators';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { MatDialog } from '@angular/material';

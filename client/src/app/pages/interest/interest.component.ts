@@ -1,12 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Interest, Post } from '@app/core/types';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { FormControl } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { map, tap, delay, finalize } from 'rxjs/operators';
+import { map, finalize } from 'rxjs/operators';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-interest',

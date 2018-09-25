@@ -12,7 +12,7 @@ export interface Interest {
 
 export interface Post {
   id: string;
-  cdate: Date;
+  cdate: any;
   interest_uid: string;
   user_uid: string;
   text?: string;

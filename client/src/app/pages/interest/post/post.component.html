@@ -1,0 +1,11 @@
+
+{{ post.cdate.toDate() | date:'short' }}
+
+<p>{{ post.text }}</p>
+<div *ngIf="post.file_url$ | async as url">
+  <img [src]="url" alt="" />
+</div>
+<div class="tools">
+  <button mat-icon-button><mat-icon>insert_comment</mat-icon></button>
+  <app-stars></app-stars>
+</div>
